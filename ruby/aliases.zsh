@@ -1,7 +1,8 @@
-alias r='rbenv local 1.8.7-p358'
+alias rv='rvm 1.9.2'
 
-alias sc='script/console'
-alias sg='script/generate'
-alias sd='script/destroy'
+alias rs='rails s'
+alias rc='rails c'
+alias rg='rails g'
+alias rd='rails d'
 
-alias migrate='rake db:migrate db:test:clone'
+alias migrate='rake db:migrate'
