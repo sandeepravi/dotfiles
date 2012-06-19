@@ -6,3 +6,5 @@ alias rg='rails g'
 alias rd='rails d'
 
 alias migrate='rake db:migrate'
+
+alias spec='rspec spec'

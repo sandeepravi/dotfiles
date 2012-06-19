@@ -55,7 +55,7 @@ rb_prompt(){
 todo(){
   if $(which todo.sh &> /dev/null)
   then
-    num=$(echo $(todo.sh ls +next | wc -l))
+    num=$(echo $(todo.sh ls | wc -l))
     let todos=num-2
     if [ $todos != 0 ]
     then

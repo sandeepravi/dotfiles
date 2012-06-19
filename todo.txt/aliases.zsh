@@ -7,4 +7,4 @@ function t() {
   fi
 }
 
-alias n="t ls +next"
+# alias n="t ls +next"
