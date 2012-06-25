@@ -15,7 +15,7 @@ class Object
   def local_methods(obj = self)
     (obj.methods - obj.class.superclass.instance_methods).sort
   end
-  
+
   # print documentation
   #
   #   ri 'Array#pop'
@@ -35,6 +35,10 @@ def me
   User.find_by_login('holman')
 end
 
-def r
+def r!
   reload!
+end
+
+def copy(*args)
+  IO.popen('pbcopy', 'r+') { |clipboard| clipboard.puts args.map(&:inspect) }
 end

@@ -68,11 +68,23 @@ todo(){
   fi
 }
 
+#show time since last commit in prompt
+function time_since_last_commit() {
+  ref=$(git symbolic-ref HEAD 2> /dev/null) || return
+  timec=$(git log -1 --pretty=format:"%ar" | sed 's/\([0-9]*\) \(.\).*/\1\2/')
+  if [[ $timec == "" ]]
+  then
+    echo ""
+  else
+    echo "($timec)"
+  fi
+}
+
 directory_name(){
   echo "%{$fg_bold[cyan]%}%1/%\/%{$reset_color%}"
 }
 
-export PROMPT=$'\n$(rb_prompt) in $(directory_name) $(git_dirty)$(need_push)\n› '
+export PROMPT=$'\n$(rb_prompt) in $(directory_name) $(git_dirty)$(need_push)$(time_since_last_commit)\n› '
 set_prompt () {
   export RPROMPT="%{$fg_bold[cyan]%}$(todo)%{$reset_color%}"
 }
